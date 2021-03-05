@@ -10,6 +10,12 @@
     "gauge",
     "visualization"
   ],
+  "main": "dist/pixi-gauges.cjs.js",
+  "module": "dist/pixi-gauges.esm.js",
+  "browser": "dist/pixi-gauges.umd.js",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "dev": "rollup -c -w",
     "clean": "rimraf dist",
@@ -30,11 +36,5 @@
     "rollup": "^1.29.0",
     "rollup-plugin-typescript": "^1.0.1",
     "typescript": "^4.2.2"
-  },
-  "main": "dist/pixi-gauges.cjs.js",
-  "module": "dist/pixi-gauges.esm.js",
-  "browser": "dist/pixi-gauges.umd.js",
-  "files": [
-    "dist"
-  ]
+  }
 }
