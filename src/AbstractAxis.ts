@@ -5,15 +5,21 @@ export abstract class AbstractAxis extends AbstractControl implements IAxis {
   protected _autoAdjustMinMax: boolean = true;
   protected _axisAlpha: number = 1;
   protected _axisColor: number = 0xffffff;
-  protected _axisHeight: number = 100;
+  protected _axisHeight: number = 200;
   protected _axisLabelFontAlpha: number = 1;
-  protected _axisLabelFontColor: number = 0x0;
-  protected _axisLabelFontName: string = "Calibri";
+  protected _axisLabelFontColor: number = 0xffffff;
+  protected _axisLabelFontName: string = "Arial";
   protected _axisLabelFontSize: number = 8;
-  protected _axisLabelGap: number = 0.3;
+  protected _axisLabelGap: number = 0.19;
+  protected _axisLabelsVisible: boolean = true;
+  protected _axisVisible: boolean = true;
   protected _axisWeight: number = 2;
-  protected _axisWidth: number = 100;
-  protected _baseAtZero: boolean = false;
+  protected _axisWidth: number = 200;
+  protected _majorTickAlpha: number = 1;
+  protected _majorTickColor: number = 0xffffff;
+  protected _majorTickCount: number = 16;
+  protected _majorTickLength: number = 0.1;
+  protected _majorTickWeight: number = 2;
   protected _maximum: number = 100;
   protected _minimum: number = 0;
   protected _minorTickAlpha: number = 1;
@@ -22,13 +28,6 @@ export abstract class AbstractAxis extends AbstractControl implements IAxis {
   protected _minorTickLength: number = 0.05;
   protected _minorTickWeight: number = 1;
   protected _precision: number = 0;
-  protected _showAxis: boolean = true;
-  protected _showAxisLabels: boolean = true;
-  protected _tickAlpha: number = 1;
-  protected _tickColor: number = 0xffffff;
-  protected _tickCount: number = 5;
-  protected _tickLength: number = 0.1;
-  protected _tickWeight: number = 2;
 
   /**
    * autoAdjustMinMax
@@ -157,6 +156,34 @@ export abstract class AbstractAxis extends AbstractControl implements IAxis {
   }
 
   /**
+   * axisLabelsVisible
+   */
+  get axisLabelsVisible(): boolean {
+    return this._axisLabelsVisible;
+  }
+
+  set axisLabelsVisible(value: boolean) {
+    if (this._axisLabelsVisible === value) return;
+
+    this._axisLabelsVisible = value;
+    this.invalidate();
+  }
+
+  /**
+   * axisVisible
+   */
+  get axisVisible(): boolean {
+    return this._axisVisible;
+  }
+
+  set axisVisible(value: boolean) {
+    if (this._axisVisible === value) return;
+
+    this._axisVisible = value;
+    this.invalidate();
+  }
+
+  /**
    * axisWeight
    */
   get axisWeight(): number {
@@ -185,16 +212,72 @@ export abstract class AbstractAxis extends AbstractControl implements IAxis {
   }
 
   /**
-   * baseAtZero
+   * majorTickAlpha
    */
-  get baseAtZero(): boolean {
-    return this._baseAtZero;
+  get majorTickAlpha(): number {
+    return this._majorTickAlpha;
   }
 
-  set baseAtZero(value: boolean) {
-    if (this._baseAtZero === value) return;
+  set majorTickAlpha(value: number) {
+    if (this._majorTickAlpha === value) return;
 
-    this._baseAtZero = value;
+    this._majorTickAlpha = value;
+    this.invalidate();
+  }
+
+  /**
+   * majorTickColor
+   */
+  get majorTickColor(): number {
+    return this._majorTickColor;
+  }
+
+  set majorTickColor(value: number) {
+    if (this._majorTickColor === value) return;
+
+    this._majorTickColor = value;
+    this.invalidate();
+  }
+
+  /**
+   * majorTickCount
+   */
+  get majorTickCount(): number {
+    return this._majorTickCount;
+  }
+
+  set majorTickCount(value: number) {
+    if (this._majorTickCount === value) return;
+
+    this._majorTickCount = value;
+    this.invalidate();
+  }
+
+  /**
+   * majorTickLength
+   */
+  get majorTickLength(): number {
+    return this._majorTickLength;
+  }
+
+  set majorTickLength(value: number) {
+    if (this._majorTickLength === value) return;
+
+    this._majorTickLength = value;
+    this.invalidate();
+  }
+
+  /**
+   * majorTickWeight
+   */
+  get majorTickWeight(): number {
+    return this._majorTickWeight;
+  }
+
+  set majorTickWeight(value: number) {
+    if (this._majorTickWeight === value) return;
+
+    this._majorTickWeight = value;
     this.invalidate();
   }
 
@@ -307,104 +390,6 @@ export abstract class AbstractAxis extends AbstractControl implements IAxis {
     if (this._precision === value) return;
 
     this._precision = value;
-    this.invalidate();
-  }
-
-  /**
-   * showAxis
-   */
-  get showAxis(): boolean {
-    return this._showAxis;
-  }
-
-  set showAxis(value: boolean) {
-    if (this._showAxis === value) return;
-
-    this._showAxis = value;
-    this.invalidate();
-  }
-
-  /**
-   * showAxisLabels
-   */
-  get showAxisLabels(): boolean {
-    return this._showAxisLabels;
-  }
-
-  set showAxisLabels(value: boolean) {
-    if (this._showAxisLabels === value) return;
-
-    this._showAxisLabels = value;
-    this.invalidate();
-  }
-
-  /**
-   * tickAlpha
-   */
-  get tickAlpha(): number {
-    return this._tickAlpha;
-  }
-
-  set tickAlpha(value: number) {
-    if (this._tickAlpha === value) return;
-
-    this._tickAlpha = value;
-    this.invalidate();
-  }
-
-  /**
-   * tickColor
-   */
-  get tickColor(): number {
-    return this._tickColor;
-  }
-
-  set tickColor(value: number) {
-    if (this._tickColor === value) return;
-
-    this._tickColor = value;
-    this.invalidate();
-  }
-
-  /**
-   * tickCount
-   */
-  get tickCount(): number {
-    return this._tickCount;
-  }
-
-  set tickCount(value: number) {
-    if (this._tickCount === value) return;
-
-    this._tickCount = value;
-    this.invalidate();
-  }
-
-  /**
-   * tickLength
-   */
-  get tickLength(): number {
-    return this._tickLength;
-  }
-
-  set tickLength(value: number) {
-    if (this._tickLength === value) return;
-
-    this._tickLength = value;
-    this.invalidate();
-  }
-
-  /**
-   * tickWeight
-   */
-  get tickWeight(): number {
-    return this._tickWeight;
-  }
-
-  set tickWeight(value: number) {
-    if (this._tickWeight === value) return;
-
-    this._tickWeight = value;
     this.invalidate();
   }
 

@@ -7,8 +7,14 @@ export interface IAxis {
   axisLabelFontName: string;
   axisLabelFontSize: number;
   axisLabelGap: number;
+  axisLabelsVisible: boolean;
+  axisVisible: boolean;
   axisWeight: number;
-  baseAtZero: boolean;
+  majorTickAlpha: number;
+  majorTickColor: number;
+  majorTickCount: number;
+  majorTickLength: number;
+  majorTickWeight: number;
   maximum: number;
   minimum: number;
   minorTickAlpha: number;
@@ -17,13 +23,6 @@ export interface IAxis {
   minorTickLength: number;
   minorTickWeight: number;
   precision: number;
-  showAxis: boolean;
-  showAxisLabels: boolean;
-  tickAlpha: number;
-  tickColor: number;
-  tickCount: number;
-  tickLength: number;
-  tickWeight: number;
 
   renderAxis(): void;
   renderLabels(): void;
