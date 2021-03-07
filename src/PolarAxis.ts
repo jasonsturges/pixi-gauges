@@ -72,6 +72,7 @@ export class PolarAxis extends AbstractPolarAxis {
     const {
       _labelPool,
       _labels,
+      axisLabelFontAlpha,
       axisLabelFontColor,
       axisLabelFontName,
       axisLabelFontSize,
@@ -116,12 +117,13 @@ export class PolarAxis extends AbstractPolarAxis {
         label.dirty = true;
       } else {
         label = new PIXI.Text(value, textStyle);
-        label.resolution = 8;
       }
 
       _labels.push(label);
       this.addChild(label);
 
+      label.alpha = axisLabelFontAlpha;
+      label.resolution = 8;
       label.anchor.set(0.5, 0.5);
       label.position.set(
         center.x + Math.cos((tickAngle * Math.PI) / 180) * (radius - radius * axisLabelGap),
