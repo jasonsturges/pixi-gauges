@@ -21,7 +21,7 @@ export abstract class AbstractPolarAxis extends AbstractAxis implements IPolarAx
     if (this._radius === value) return;
 
     this._radius = value;
-    this.invalidate();
+    this.dirty = true;
   }
 
   /**
@@ -35,7 +35,7 @@ export abstract class AbstractPolarAxis extends AbstractAxis implements IPolarAx
     if (this._spanAngle === value) return;
 
     this._spanAngle = value;
-    this.invalidate();
+    this.dirty = true;
   }
 
   /**
@@ -49,6 +49,6 @@ export abstract class AbstractPolarAxis extends AbstractAxis implements IPolarAx
     if (this._startAngle === value) return;
 
     this._startAngle = value;
-    this.invalidate();
+    this.dirty = true;
   }
 }

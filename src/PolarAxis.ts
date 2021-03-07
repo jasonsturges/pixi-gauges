@@ -34,8 +34,8 @@ export class PolarAxis extends AbstractPolarAxis {
   public render(renderer: PIXI.Renderer) {
     super.render(renderer);
 
-    if (!this._invalidated) return;
-    this._invalidated = false;
+    if (!this.dirty) return;
+    this.dirty = false;
 
     this._graphics.clear();
 

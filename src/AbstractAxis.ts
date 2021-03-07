@@ -1,7 +1,7 @@
-import { AbstractControl } from "./AbstractControl";
+import * as PIXI from "pixi.js";
 import { IAxis } from "./IAxis";
 
-export abstract class AbstractAxis extends AbstractControl implements IAxis {
+export abstract class AbstractAxis extends PIXI.Sprite implements IAxis {
   protected _autoAdjustMinMax: boolean = true;
   protected _axisAlpha: number = 1;
   protected _axisColor: number = 0xffffff;
@@ -40,7 +40,7 @@ export abstract class AbstractAxis extends AbstractControl implements IAxis {
     if (this._autoAdjustMinMax === value) return;
 
     this._autoAdjustMinMax = value;
-    this.invalidate();
+    this.dirty = true;
   }
 
   /**
@@ -54,7 +54,7 @@ export abstract class AbstractAxis extends AbstractControl implements IAxis {
     if (this._axisAlpha === value) return;
 
     this._axisAlpha = value;
-    this.invalidate();
+    this.dirty = true;
   }
 
   /**
@@ -68,7 +68,7 @@ export abstract class AbstractAxis extends AbstractControl implements IAxis {
     if (this._axisColor === value) return;
 
     this._axisColor = value;
-    this.invalidate();
+    this.dirty = true;
   }
 
   /**
@@ -82,7 +82,7 @@ export abstract class AbstractAxis extends AbstractControl implements IAxis {
     if (this._axisHeight === value) return;
 
     this._axisHeight = value;
-    this.invalidate();
+    this.dirty = true;
   }
 
   /**
@@ -96,7 +96,7 @@ export abstract class AbstractAxis extends AbstractControl implements IAxis {
     if (this._axisLabelFontAlpha === value) return;
 
     this._axisLabelFontAlpha = value;
-    this.invalidate();
+    this.dirty = true;
   }
 
   /**
@@ -110,7 +110,7 @@ export abstract class AbstractAxis extends AbstractControl implements IAxis {
     if (this._axisLabelFontColor === value) return;
 
     this._axisLabelFontColor = value;
-    this.invalidate();
+    this.dirty = true;
   }
 
   /**
@@ -124,7 +124,7 @@ export abstract class AbstractAxis extends AbstractControl implements IAxis {
     if (this._axisLabelFontName === value) return;
 
     this._axisLabelFontName = value;
-    this.invalidate();
+    this.dirty = true;
   }
 
   /**
@@ -138,7 +138,7 @@ export abstract class AbstractAxis extends AbstractControl implements IAxis {
     if (this._axisLabelFontSize === value) return;
 
     this._axisLabelFontSize = value;
-    this.invalidate();
+    this.dirty = true;
   }
 
   /**
@@ -152,7 +152,7 @@ export abstract class AbstractAxis extends AbstractControl implements IAxis {
     if (this._axisLabelGap === value) return;
 
     this._axisLabelGap = value;
-    this.invalidate();
+    this.dirty = true;
   }
 
   /**
@@ -166,7 +166,7 @@ export abstract class AbstractAxis extends AbstractControl implements IAxis {
     if (this._axisLabelsVisible === value) return;
 
     this._axisLabelsVisible = value;
-    this.invalidate();
+    this.dirty = true;
   }
 
   /**
@@ -180,7 +180,7 @@ export abstract class AbstractAxis extends AbstractControl implements IAxis {
     if (this._axisVisible === value) return;
 
     this._axisVisible = value;
-    this.invalidate();
+    this.dirty = true;
   }
 
   /**
@@ -194,7 +194,7 @@ export abstract class AbstractAxis extends AbstractControl implements IAxis {
     if (this._axisWeight === value) return;
 
     this._axisWeight = value;
-    this.invalidate();
+    this.dirty = true;
   }
 
   /**
@@ -208,7 +208,7 @@ export abstract class AbstractAxis extends AbstractControl implements IAxis {
     if (this._axisWidth === value) return;
 
     this._axisWidth = value;
-    this.invalidate();
+    this.dirty = true;
   }
 
   /**
@@ -222,7 +222,7 @@ export abstract class AbstractAxis extends AbstractControl implements IAxis {
     if (this._majorTickAlpha === value) return;
 
     this._majorTickAlpha = value;
-    this.invalidate();
+    this.dirty = true;
   }
 
   /**
@@ -236,7 +236,7 @@ export abstract class AbstractAxis extends AbstractControl implements IAxis {
     if (this._majorTickColor === value) return;
 
     this._majorTickColor = value;
-    this.invalidate();
+    this.dirty = true;
   }
 
   /**
@@ -250,7 +250,7 @@ export abstract class AbstractAxis extends AbstractControl implements IAxis {
     if (this._majorTickCount === value) return;
 
     this._majorTickCount = value;
-    this.invalidate();
+    this.dirty = true;
   }
 
   /**
@@ -264,7 +264,7 @@ export abstract class AbstractAxis extends AbstractControl implements IAxis {
     if (this._majorTickLength === value) return;
 
     this._majorTickLength = value;
-    this.invalidate();
+    this.dirty = true;
   }
 
   /**
@@ -278,7 +278,7 @@ export abstract class AbstractAxis extends AbstractControl implements IAxis {
     if (this._majorTickWeight === value) return;
 
     this._majorTickWeight = value;
-    this.invalidate();
+    this.dirty = true;
   }
 
   /**
@@ -292,7 +292,7 @@ export abstract class AbstractAxis extends AbstractControl implements IAxis {
     if (this._maximum === value) return;
 
     this._maximum = value;
-    this.invalidate();
+    this.dirty = true;
   }
 
   /**
@@ -306,7 +306,7 @@ export abstract class AbstractAxis extends AbstractControl implements IAxis {
     if (this._minimum === value) return;
 
     this._minimum = value;
-    this.invalidate();
+    this.dirty = true;
   }
 
   /**
@@ -320,7 +320,7 @@ export abstract class AbstractAxis extends AbstractControl implements IAxis {
     if (this._minorTickAlpha === value) return;
 
     this._minorTickAlpha = value;
-    this.invalidate();
+    this.dirty = true;
   }
 
   /**
@@ -334,7 +334,7 @@ export abstract class AbstractAxis extends AbstractControl implements IAxis {
     if (this._minorTickColor === value) return;
 
     this._minorTickColor = value;
-    this.invalidate();
+    this.dirty = true;
   }
 
   /**
@@ -348,7 +348,7 @@ export abstract class AbstractAxis extends AbstractControl implements IAxis {
     if (this._minorTickCount === value) return;
 
     this._minorTickCount = value;
-    this.invalidate();
+    this.dirty = true;
   }
 
   /**
@@ -362,7 +362,7 @@ export abstract class AbstractAxis extends AbstractControl implements IAxis {
     if (this._minorTickLength === value) return;
 
     this._minorTickLength = value;
-    this.invalidate();
+    this.dirty = true;
   }
 
   /**
@@ -376,7 +376,7 @@ export abstract class AbstractAxis extends AbstractControl implements IAxis {
     if (this._minorTickWeight === value) return;
 
     this._minorTickWeight = value;
-    this.invalidate();
+    this.dirty = true;
   }
 
   /**
@@ -390,7 +390,12 @@ export abstract class AbstractAxis extends AbstractControl implements IAxis {
     if (this._precision === value) return;
 
     this._precision = value;
-    this.invalidate();
+    this.dirty = true;
+  }
+
+  constructor() {
+    super();
+    this.dirty = true;
   }
 
   abstract renderAxis(): void;
