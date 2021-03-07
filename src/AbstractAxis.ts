@@ -393,6 +393,9 @@ export abstract class AbstractAxis extends PIXI.Sprite implements IAxis {
     this.dirty = true;
   }
 
+  /**
+   * @constructor
+   */
   constructor() {
     super();
     this.dirty = true;
