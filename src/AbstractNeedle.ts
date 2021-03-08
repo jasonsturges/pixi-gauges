@@ -5,7 +5,7 @@ export abstract class AbstractNeedle extends AbstractControl implements INeedle 
   protected _needleBaseWidth: number = 4;
   protected _needleFillAlpha: number = 1.0;
   protected _needleFillColor: number = 0x313131;
-  protected _needleRadius: number = 50;
+  protected _needleRadius: number = 90;
   protected _needleStrokeAlpha: number = 1.0;
   protected _needleStrokeColor: number = 0xffffff;
   protected _needleStrokeWeight: number = 1;

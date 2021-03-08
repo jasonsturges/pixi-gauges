@@ -8,13 +8,6 @@ export class PolarAxis extends AbstractPolarAxis {
   private _labels: PIXI.Text[];
 
   /**
-   * Center of polar axis
-   */
-  protected get center(): PIXI.Point {
-    return new PIXI.Point(this.axisWidth * 0.5, this.axisHeight * 0.5);
-  }
-
-  /**
    * @constructor
    */
   constructor() {
@@ -56,8 +49,8 @@ export class PolarAxis extends AbstractPolarAxis {
 
     DrawingUtils.drawArc(
       _graphics,
-      this.center.x + Math.cos((this.startAngle * Math.PI) / 180) * this.radius,
-      this.center.y + Math.sin((this.startAngle * Math.PI) / 180) * this.radius,
+      Math.cos((this.startAngle * Math.PI) / 180) * this.radius,
+      Math.sin((this.startAngle * Math.PI) / 180) * this.radius,
       this.radius,
       -this.spanAngle,
       -this.startAngle
@@ -76,7 +69,6 @@ export class PolarAxis extends AbstractPolarAxis {
       axisLabelFontName,
       axisLabelFontSize,
       axisLabelGap,
-      center,
       maximum,
       minimum,
       majorTickCount,
@@ -125,8 +117,8 @@ export class PolarAxis extends AbstractPolarAxis {
       label.resolution = 8;
       label.anchor.set(0.5, 0.5);
       label.position.set(
-        center.x + Math.cos((tickAngle * Math.PI) / 180) * (radius - radius * axisLabelGap),
-        center.y + Math.sin((tickAngle * Math.PI) / 180) * (radius - radius * axisLabelGap)
+        Math.cos((tickAngle * Math.PI) / 180) * (radius - radius * axisLabelGap),
+        Math.sin((tickAngle * Math.PI) / 180) * (radius - radius * axisLabelGap)
       );
     }
 
@@ -141,7 +133,6 @@ export class PolarAxis extends AbstractPolarAxis {
   renderTickMarks() {
     const {
       _graphics,
-      center,
       minorTickAlpha,
       minorTickColor,
       minorTickCount,
@@ -163,13 +154,13 @@ export class PolarAxis extends AbstractPolarAxis {
       _graphics.lineStyle(majorTickWeight, majorTickColor, majorTickAlpha);
 
       _graphics.moveTo(
-        center.x + Math.cos((tickAngle * Math.PI) / 180) * radius,
-        center.y + Math.sin((tickAngle * Math.PI) / 180) * radius
+        Math.cos((tickAngle * Math.PI) / 180) * radius,
+        Math.sin((tickAngle * Math.PI) / 180) * radius
       );
 
       _graphics.lineTo(
-        center.x + Math.cos((tickAngle * Math.PI) / 180) * (radius - radius * majorTickLength),
-        center.y + Math.sin((tickAngle * Math.PI) / 180) * (radius - radius * majorTickLength)
+        Math.cos((tickAngle * Math.PI) / 180) * (radius - radius * majorTickLength),
+        Math.sin((tickAngle * Math.PI) / 180) * (radius - radius * majorTickLength)
       );
 
       // minor tick marks
@@ -179,13 +170,13 @@ export class PolarAxis extends AbstractPolarAxis {
 
       for (let j: number = 0, minorTickAngle: number = tickAngle + minorInterval; j < minorTickCount && i !== majorTickCount - 1; j++, minorTickAngle += minorInterval) {
         _graphics.moveTo(
-          center.x + Math.cos((minorTickAngle * Math.PI) / 180) * radius,
-          center.y + Math.sin((minorTickAngle * Math.PI) / 180) * radius
+          Math.cos((minorTickAngle * Math.PI) / 180) * radius,
+          Math.sin((minorTickAngle * Math.PI) / 180) * radius
         );
 
         _graphics.lineTo(
-          center.x + Math.cos((minorTickAngle * Math.PI) / 180) * (radius - radius * minorTickLength),
-          center.y + Math.sin((minorTickAngle * Math.PI) / 180) * (radius - radius * minorTickLength)
+          Math.cos((minorTickAngle * Math.PI) / 180) * (radius - radius * minorTickLength),
+          Math.sin((minorTickAngle * Math.PI) / 180) * (radius - radius * minorTickLength)
         );
       }
     }
