@@ -36,7 +36,6 @@ export class PolarAxis extends AbstractPolarAxis {
 
     if (!this.dirty) return;
     this.dirty = false;
-
     this._graphics.clear();
 
     if (this.axisVisible) {
