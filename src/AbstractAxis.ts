@@ -3,9 +3,9 @@ import { IAxis } from "./IAxis";
 
 export abstract class AbstractAxis extends AbstractControl implements IAxis {
   protected _axisAlpha: number = 1;
-  protected _axisColor: number = 0xffffff;
+  protected _axisColor: number = 0x313131;
   protected _axisLabelFontAlpha: number = 1;
-  protected _axisLabelFontColor: number = 0xffffff;
+  protected _axisLabelFontColor: number = 0x313131;
   protected _axisLabelFontName: string = "Arial";
   protected _axisLabelFontSize: number = 8;
   protected _axisLabelGap: number = 0.19;
@@ -13,14 +13,14 @@ export abstract class AbstractAxis extends AbstractControl implements IAxis {
   protected _axisVisible: boolean = true;
   protected _axisWeight: number = 2;
   protected _majorTickAlpha: number = 1;
-  protected _majorTickColor: number = 0xffffff;
+  protected _majorTickColor: number = 0x313131;
   protected _majorTickCount: number = 16;
   protected _majorTickLength: number = 0.1;
   protected _majorTickWeight: number = 2;
   protected _maximum: number = 100;
   protected _minimum: number = 0;
   protected _minorTickAlpha: number = 1;
-  protected _minorTickColor: number = 0xffffff;
+  protected _minorTickColor: number = 0x313131;
   protected _minorTickCount: number = 4;
   protected _minorTickLength: number = 0.05;
   protected _minorTickWeight: number = 1;
