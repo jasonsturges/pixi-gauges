@@ -27,6 +27,10 @@ export abstract class AbstractAxis extends AbstractControl implements IAxis {
   protected _minorTickWeight: number = 1;
   protected _precision: number = 0;
 
+  //------------------------------
+  //  properties
+  //------------------------------
+
   /**
    * autoAdjustMinMax
    */
@@ -363,13 +367,9 @@ export abstract class AbstractAxis extends AbstractControl implements IAxis {
     this._dirty = true;
   }
 
-  /**
-   * @constructor
-   */
-  constructor() {
-    super();
-    this._dirty = true;
-  }
+  //------------------------------
+  //  methods
+  //------------------------------
 
   abstract renderAxis(): void;
   abstract renderLabels(): void;

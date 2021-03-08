@@ -126,16 +126,4 @@ export abstract class AbstractNeedle extends AbstractControl implements INeedle 
     this._needleTipWidth = value;
     this._dirty = true;
   }
-
-  //------------------------------
-  //  methods
-  //------------------------------
-
-  /**
-   * @constructor
-   */
-  constructor() {
-    super();
-    this._dirty = true;
-  }
 }
