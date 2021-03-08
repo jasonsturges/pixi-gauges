@@ -37,14 +37,8 @@ export class Needle extends AbstractNeedle {
       needleTipWidth,
     } = this;
 
-    _graphics.lineStyle(
-      needleStrokeWeight,
-      needleStrokeColor,
-      needleStrokeAlpha
-    );
-
+    _graphics.lineStyle(needleStrokeWeight, needleStrokeColor, needleStrokeAlpha);
     _graphics.beginFill(needleFillColor, needleFillAlpha);
-    _graphics.lineJ;
 
     const base: number = needleBaseWidth * 0.5;
     const basePoint1: PIXI.Point = new PIXI.Point(0, -base);
