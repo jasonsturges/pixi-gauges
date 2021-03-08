@@ -1,7 +1,7 @@
-import * as PIXI from "pixi.js";
+import { AbstractControl } from "./AbstractControl";
 import { IAxis } from "./IAxis";
 
-export abstract class AbstractAxis extends PIXI.Sprite implements IAxis {
+export abstract class AbstractAxis extends AbstractControl implements IAxis {
   protected _autoAdjustMinMax: boolean = true;
   protected _axisAlpha: number = 1;
   protected _axisColor: number = 0xffffff;

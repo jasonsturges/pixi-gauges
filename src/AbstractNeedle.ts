@@ -1,7 +1,7 @@
-import * as PIXI from "pixi.js";
 import { INeedle } from "./INeedle";
+import { AbstractControl } from "./AbstractControl";
 
-export abstract class AbstractNeedle extends PIXI.Sprite implements INeedle {
+export abstract class AbstractNeedle extends AbstractControl implements INeedle {
   protected _needleBaseWidth: number = 4;
   protected _needleFillAlpha: number = 1.0;
   protected _needleFillColor: number = 0x313131;
@@ -26,7 +26,7 @@ export abstract class AbstractNeedle extends PIXI.Sprite implements INeedle {
     if (this._needleBaseWidth === value) return;
 
     this._needleBaseWidth = value;
-    this.dirty = true;
+    this._dirty = true;
   }
 
   /**
@@ -40,7 +40,7 @@ export abstract class AbstractNeedle extends PIXI.Sprite implements INeedle {
     if (this._needleFillAlpha === value) return;
 
     this._needleFillAlpha = value;
-    this.dirty = true;
+    this._dirty = true;
   }
 
   /**
@@ -54,7 +54,7 @@ export abstract class AbstractNeedle extends PIXI.Sprite implements INeedle {
     if (this._needleFillColor === value) return;
 
     this._needleFillColor = value;
-    this.dirty = true;
+    this._dirty = true;
   }
 
   /**
@@ -68,7 +68,7 @@ export abstract class AbstractNeedle extends PIXI.Sprite implements INeedle {
     if (this._needleRadius === value) return;
 
     this._needleRadius = value;
-    this.dirty = true;
+    this._dirty = true;
   }
 
   /**
@@ -82,7 +82,7 @@ export abstract class AbstractNeedle extends PIXI.Sprite implements INeedle {
     if (this._needleStrokeAlpha === value) return;
 
     this._needleStrokeAlpha = value;
-    this.dirty = true;
+    this._dirty = true;
   }
 
   /**
@@ -96,7 +96,7 @@ export abstract class AbstractNeedle extends PIXI.Sprite implements INeedle {
     if (this._needleStrokeColor === value) return;
 
     this._needleStrokeColor = value;
-    this.dirty = true;
+    this._dirty = true;
   }
 
   /**
@@ -110,7 +110,7 @@ export abstract class AbstractNeedle extends PIXI.Sprite implements INeedle {
     if (this._needleStrokeWeight === value) return;
 
     this._needleStrokeWeight = value;
-    this.dirty = true;
+    this._dirty = true;
   }
 
   /**
@@ -124,7 +124,7 @@ export abstract class AbstractNeedle extends PIXI.Sprite implements INeedle {
     if (this._needleTipWidth === value) return;
 
     this._needleTipWidth = value;
-    this.dirty = true;
+    this._dirty = true;
   }
 
   //------------------------------
@@ -136,6 +136,6 @@ export abstract class AbstractNeedle extends PIXI.Sprite implements INeedle {
    */
   constructor() {
     super();
-    this.dirty = true;
+    this._dirty = true;
   }
 }
