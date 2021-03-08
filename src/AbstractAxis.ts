@@ -2,7 +2,6 @@ import { AbstractControl } from "./AbstractControl";
 import { IAxis } from "./IAxis";
 
 export abstract class AbstractAxis extends AbstractControl implements IAxis {
-  protected _autoAdjustMinMax: boolean = true;
   protected _axisAlpha: number = 1;
   protected _axisColor: number = 0xffffff;
   protected _axisLabelFontAlpha: number = 1;
@@ -30,20 +29,6 @@ export abstract class AbstractAxis extends AbstractControl implements IAxis {
   //------------------------------
   //  properties
   //------------------------------
-
-  /**
-   * autoAdjustMinMax
-   */
-  get autoAdjustMinMax(): boolean {
-    return this._autoAdjustMinMax;
-  }
-
-  set autoAdjustMinMax(value: boolean) {
-    if (this._autoAdjustMinMax === value) return;
-
-    this._autoAdjustMinMax = value;
-    this._dirty = true;
-  }
 
   /**
    * axisAlpha

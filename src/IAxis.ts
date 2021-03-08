@@ -1,5 +1,4 @@
 export interface IAxis {
-  autoAdjustMinMax: boolean;
   axisAlpha: number;
   axisColor: number;
   axisLabelFontAlpha: number;
