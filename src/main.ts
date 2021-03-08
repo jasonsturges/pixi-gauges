@@ -9,6 +9,7 @@ export { IGauge } from "./IGauge";
 export { INeedle } from "./INeedle";
 export { IPolarAxis } from "./IPolarAxis";
 export { Needle } from "./Needle";
+export { NeedleOptions } from "./NeedleOptions";
 export { PolarAxis } from "./PolarAxis";
 export { PolarAxisOptions } from "./PolarAxisOptions";
 export { RadialGauge } from "./RadialGauge";

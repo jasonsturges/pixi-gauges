@@ -1,5 +1,6 @@
 import * as PIXI from "pixi.js";
 import { AbstractNeedle } from "./AbstractNeedle";
+import { NeedleOptions } from "./NeedleOptions";
 
 export class Needle extends AbstractNeedle {
   private readonly _graphics: PIXI.Graphics;
@@ -7,8 +8,10 @@ export class Needle extends AbstractNeedle {
   /**
    * @constructor
    */
-  constructor() {
+  constructor(options: Partial<NeedleOptions> = {}) {
     super();
+
+    this.set(options);
 
     this._graphics = new PIXI.Graphics();
     this.addChild(this._graphics);
@@ -81,5 +84,14 @@ export class Needle extends AbstractNeedle {
     );
 
     _graphics.endFill();
+  }
+
+  /**
+   * Apply needle options
+   * @param {NeedleOptions} options - Options to be applied
+   */
+  public set(options: Partial<NeedleOptions> = {}) {
+    Object.assign(this, options);
+    this._dirty = true;
   }
 }
