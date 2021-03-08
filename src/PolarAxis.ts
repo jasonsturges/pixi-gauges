@@ -1,6 +1,7 @@
 import * as PIXI from "pixi.js";
 import { AbstractPolarAxis } from "./AbstractPolarAxis";
 import { DrawingUtils } from "./utils/DrawingUtils";
+import { PolarAxisOptions } from "./PolarAxisOptions";
 
 export class PolarAxis extends AbstractPolarAxis {
   private readonly _graphics: PIXI.Graphics;
@@ -10,8 +11,10 @@ export class PolarAxis extends AbstractPolarAxis {
   /**
    * @constructor
    */
-  constructor() {
+  constructor(options: Partial<PolarAxisOptions> = {}) {
     super();
+
+    this.set(options);
 
     this._graphics = new PIXI.Graphics();
     this.addChild(this._graphics);
@@ -180,5 +183,14 @@ export class PolarAxis extends AbstractPolarAxis {
         );
       }
     }
+  }
+
+  /**
+   * Apply axis options
+   * @param {PolarAxisOptions} options - Options to be applied
+   */
+  public set(options: Partial<PolarAxisOptions> = {}) {
+    Object.assign(this,options);
+    this._dirty = true;
   }
 }
