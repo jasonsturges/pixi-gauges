@@ -3,6 +3,7 @@ import * as PIXI from "pixi.js";
 import { AbstractGauge } from "./AbstractGauge";
 import { Needle } from "./Needle";
 import { PolarAxis } from "./PolarAxis";
+import { RadialGaugeOptions } from "./RadialGaugeOptions";
 
 export class RadialGauge extends AbstractGauge {
   private readonly _needle: Needle;
@@ -373,7 +374,7 @@ export class RadialGauge extends AbstractGauge {
   /**
    * @constructor
    */
-  constructor() {
+  constructor(options: Partial<RadialGaugeOptions> = {}) {
     super();
 
     this._polarAxis = new PolarAxis();
@@ -382,6 +383,8 @@ export class RadialGauge extends AbstractGauge {
     this._needle = new Needle();
     this._needle.angle = this._polarAxis.startAngle;
     this.addChild(this._needle);
+
+    this.set(options);
   }
 
   /**
@@ -404,5 +407,14 @@ export class RadialGauge extends AbstractGauge {
       _polarAxis.spanAngle * ((value - minimum) / (maximum - minimum));
 
     _needle.angle = target;
+  }
+
+  /**
+   * Apply gauge options
+   * @param {RadialGaugeOptions} options - Options to be applied
+   */
+  public set(options: Partial<RadialGaugeOptions> = {}) {
+    Object.assign(this,options);
+    this._dirty = true;
   }
 }

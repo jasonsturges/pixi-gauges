@@ -11,3 +11,4 @@ export { IPolarAxis } from "./IPolarAxis";
 export { Needle } from "./Needle";
 export { PolarAxis } from "./PolarAxis";
 export { RadialGauge } from "./RadialGauge";
+export { RadialGaugeOptions } from "./RadialGaugeOptions";
