@@ -1,7 +1,9 @@
 export { AbstractAxis } from "./AbstractAxis";
+export { AbstractControl } from "./AbstractControl";
 export { AbstractNeedle } from "./AbstractNeedle";
 export { AbstractPolarAxis } from "./AbstractPolarAxis";
 export { IAxis } from "./IAxis";
+export { IControl } from "./IControl";
 export { INeedle } from "./INeedle";
 export { IPolarAxis } from "./IPolarAxis";
 export { Needle } from "./Needle";
