@@ -1,12 +1,12 @@
 {
   "projectFolder": ".",
-  "mainEntryPointFilePath": "<projectFolder>/@types/main.d.ts",
+  "mainEntryPointFilePath": "<projectFolder>/build/main.d.ts",
   "bundledPackages": [],
   "compiler": {
     "tsconfigFilePath": "<projectFolder>/tsconfig.json",
     "overrideTsconfig": {
       "compilerOptions": {
-        "outDir": "@types"
+        "outDir": "build"
       }
     }
   },

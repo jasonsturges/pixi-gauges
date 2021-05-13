@@ -19,9 +19,9 @@
   "scripts": {
     "dev": "rollup -c -w",
     "build": "rollup -c",
-    "prebuild:types": "rimraf ./@types",
-    "build:types": "tsc -p ./tsconfig.json --outDir @types --declaration true && api-extractor run",
-    "clean": "rimraf ./dist ./@types"
+    "prebuild:types": "rimraf ./build",
+    "build:types": "tsc -p ./tsconfig.json --outDir build --declaration true && api-extractor run",
+    "clean": "rimraf ./dist ./build"
   },
   "dependencies": {
     "pixi.js": "^5.3.8"
