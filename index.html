@@ -1,0 +1,179 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>pixi-gauges</title>
+	<meta name="description" content="Documentation for pixi-gauges">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/main.css">
+	<script async src="assets/js/search.js" id="search-script"></script>
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.json" data-base=".">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="index.html" class="title">pixi-gauges</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<h1>pixi-gauges</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<a href="#pixi-gauges" id="pixi-gauges" style="color: inherit; text-decoration: none;">
+					<h1>Pixi Gauges</h1>
+				</a>
+				<p>Pixi.js gauge visualization components</p>
+				<p><img src="https://user-images.githubusercontent.com/1213591/110276868-b480dd00-7f99-11eb-95c0-e7cc509e497a.gif" alt="pixi-gauges"></p>
+				<p>CodeSandbox Demo: <a href="https://s2cw6.csb.app/">https://s2cw6.csb.app/</a></p>
+				<a href="#getting-started" id="getting-started" style="color: inherit; text-decoration: none;">
+					<h1>Getting Started</h1>
+				</a>
+				<p>To install, execute:</p>
+				<pre><code><span style="color: #001080">npm</span><span style="color: #000000"> </span><span style="color: #001080">i</span><span style="color: #000000"> </span><span style="color: #001080">pixi</span><span style="color: #000000">-</span><span style="color: #001080">gauges</span>
+</code></pre>
+				<p>Then, import into a project as:</p>
+				<pre><code class="language-js"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">RadialGauge</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;pixi-gauges&quot;</span><span style="color: #000000">;</span>
+</code></pre>
+				<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
+					<h1>Usage</h1>
+				</a>
+				<p>Radial Gauge is a Pixi.js Sprite, able to be added to the display list:</p>
+				<pre><code class="language-js"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">RadialGauge</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;pixi-graphpaper&quot;</span><span style="color: #000000">;</span>
+
+<span style="color: #0000FF">let</span><span style="color: #000000"> </span><span style="color: #001080">gauge</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">RadialGauge</span><span style="color: #000000">();</span>
+<span style="color: #001080">stage</span><span style="color: #000000">.</span><span style="color: #795E26">addChild</span><span style="color: #000000">(</span><span style="color: #001080">gauge</span><span style="color: #000000">);</span>
+</code></pre>
+				<p>Additional components and documentation in progress.</p>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class=" ">
+						<a href="modules.html">Exports</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/abstractaxis.html">Abstract<wbr>Axis</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/abstractcontrol.html">Abstract<wbr>Control</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/abstractgauge.html">Abstract<wbr>Gauge</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/abstractneedle.html">Abstract<wbr>Needle</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/abstractpolaraxis.html">Abstract<wbr>Polar<wbr>Axis</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/iaxis.html">IAxis</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/icontrol.html">IControl</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/igauge.html">IGauge</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/ineedle.html">INeedle</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/ipolaraxis.html">IPolar<wbr>Axis</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/needle.html">Needle</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/needleoptions.html">Needle<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/polaraxis.html">Polar<wbr>Axis</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/polaraxisoptions.html">Polar<wbr>Axis<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/radialgauge.html">Radial<wbr>Gauge</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/radialgaugeoptions.html">Radial<wbr>Gauge<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/main.html">main</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/utils_drawingutils.html">utils/<wbr>Drawing<wbr>Utils</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
