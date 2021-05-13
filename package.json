@@ -20,7 +20,7 @@
     "dev": "rollup -c -w",
     "build": "rollup -c",
     "build:types": "rimraf ./@types && tsc -p ./tsconfig.json --outDir @types && yarn api-extractor run",
-    "clean": "rimraf dist"
+    "clean": "rimraf ./dist ./@types"
   },
   "dependencies": {
     "pixi.js": "^5.3.8"
