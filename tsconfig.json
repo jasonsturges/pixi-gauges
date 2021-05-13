@@ -4,8 +4,6 @@
     "module": "esnext",
     "moduleResolution": "node",
     "strict": true,
-    "esModuleInterop": true,
-    "declaration": true,
-    "declarationDir": "@types"
+    "esModuleInterop": true
   }
 }

@@ -19,7 +19,8 @@
   "scripts": {
     "dev": "rollup -c -w",
     "build": "rollup -c",
-    "build:types": "rimraf ./@types && tsc -p ./tsconfig.json --outDir @types && yarn api-extractor run",
+    "prebuild:types": "rimraf ./@types",
+    "build:types": "tsc -p ./tsconfig.json --outDir @types --declaration true && api-extractor run",
     "clean": "rimraf ./dist ./@types"
   },
   "dependencies": {
