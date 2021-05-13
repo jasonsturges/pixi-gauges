@@ -21,7 +21,9 @@
     "build": "rollup -c",
     "prebuild:types": "rimraf ./build",
     "build:types": "tsc -p ./tsconfig.json --outDir build --declaration true && api-extractor run",
-    "clean": "rimraf ./dist ./build"
+    "predocs": "rimraf ./docs",
+    "docs": "typedoc src --out docs",
+    "clean": "rimraf ./build ./dist ./docs"
   },
   "dependencies": {
     "pixi.js": "^5.3.8"
@@ -35,6 +37,7 @@
     "prettier": "^2.2.1",
     "rimraf": "^3.0.2",
     "rollup": "^2.40.0",
+    "typedoc": "^0.20.36",
     "typescript": "^4.2.3"
   }
 }
