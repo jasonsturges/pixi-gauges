@@ -2,10 +2,10 @@
   "compilerOptions": {
     "target": "es6",
     "module": "esnext",
-    "moduleResolution": "Node",
-    "declaration": true,
+    "moduleResolution": "node",
     "strict": true,
     "esModuleInterop": true,
-    "outDir": "@types"
+    "declaration": true,
+    "declarationDir": "@types"
   }
 }
