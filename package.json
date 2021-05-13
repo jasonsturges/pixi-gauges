@@ -25,6 +25,7 @@
     "pixi.js": "^5.3.8"
   },
   "devDependencies": {
+    "@microsoft/api-extractor": "^7.15.1",
     "@rollup/plugin-commonjs": "^17.1.0",
     "@rollup/plugin-node-resolve": "^11.2.0",
     "@rollup/plugin-typescript": "^8.2.0",
