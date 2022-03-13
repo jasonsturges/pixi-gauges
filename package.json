@@ -21,8 +21,8 @@
     "build": "rollup -c",
     "prebuild:types": "rimraf ./build",
     "build:types": "tsc -p ./tsconfig.json --outDir build --declaration true && api-extractor run",
-    "predocs": "rimraf ./docs",
-    "docs": "typedoc src --out docs",
+    "predoc:typedoc": "rimraf ./docs",
+    "docs:typedoc": "typedoc src --out docs",
     "clean": "rimraf ./build ./dist ./docs"
   },
   "dependencies": {
