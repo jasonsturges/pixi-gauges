@@ -1,6 +1,39 @@
-import * as PIXI from "pixi.js";
-import { IControl } from "./IControl";
+import { Renderer, Sprite } from "pixi.js";
 
-export abstract class AbstractControl extends PIXI.Sprite implements IControl {
-  _dirty: boolean = true;
+export abstract class AbstractControl extends Sprite {
+  private _invalidated?: boolean | undefined;
+
+  /**
+   * Constructor
+   */
+  constructor() {
+    super();
+
+    this._invalidated = false;
+  }
+
+  /**
+   * Invalidate component, forcing validation on next render cycle.
+   */
+  protected invalidate() {
+    this._invalidated = true;
+  }
+
+  /**
+   * Render override for invalidation pipeline.
+   */
+  override render(renderer: Renderer) {
+    super.render(renderer);
+
+    if (this._invalidated) {
+      this.validate();
+    }
+  }
+
+  /**
+   * Validation pipeline.
+   */
+  protected validate() {
+    this._invalidated = false;
+  }
 }

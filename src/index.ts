@@ -4,7 +4,6 @@ export { AbstractGauge } from "./display/AbstractGauge";
 export { AbstractNeedle } from "./display/AbstractNeedle";
 export { AbstractPolarAxis } from "./display/AbstractPolarAxis";
 export { IAxis } from "./display/IAxis";
-export { IControl } from "./display/IControl";
 export { IGauge } from "./display/IGauge";
 export { INeedle } from "./display/INeedle";
 export { IPolarAxis } from "./display/IPolarAxis";
