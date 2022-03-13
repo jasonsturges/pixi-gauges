@@ -1,6 +1,6 @@
 import * as PIXI from "pixi.js";
 import { AbstractPolarAxis } from "./AbstractPolarAxis";
-import { DrawingUtils } from "./utils/DrawingUtils";
+import { DrawingUtils } from "../utils/DrawingUtils";
 import { PolarAxisOptions } from "./PolarAxisOptions";
 
 export class PolarAxis extends AbstractPolarAxis {
