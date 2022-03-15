@@ -1,4 +1,5 @@
 # Pixi Gauges
+
 Pixi.js gauge visualization components
 
 ![pixi-gauges](https://user-images.githubusercontent.com/1213591/110276868-b480dd00-7f99-11eb-95c0-e7cc509e497a.gif)
@@ -22,7 +23,7 @@ import { RadialGauge } from "pixi-gauges";
 Radial Gauge is a Pixi.js Sprite, able to be added to the display list:
 
 ```js
-import { RadialGauge } from "pixi-graphpaper";
+import { RadialGauge } from "pixi-gauges";
 
 let gauge = new RadialGauge();
 stage.addChild(gauge);
