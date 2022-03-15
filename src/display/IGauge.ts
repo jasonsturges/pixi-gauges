@@ -1,6 +1,6 @@
 export interface IGauge {
-  autoAdjustMinMax: boolean;
-  maximum: number;
-  minimum: number;
-  value: number;
+  autoAdjustMinMax?: boolean | undefined;
+  maximum?: number | undefined;
+  minimum?: number | undefined;
+  value?: number | undefined;
 }
