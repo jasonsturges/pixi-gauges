@@ -1,10 +1,10 @@
 export interface INeedle {
-  needleBaseWidth: number;
-  needleFillAlpha: number;
-  needleFillColor: number;
-  needleRadius: number;
-  needleStrokeAlpha: number;
-  needleStrokeColor: number;
-  needleStrokeWeight: number;
-  needleTipWidth: number;
+  needleBaseWidth?: number | undefined;
+  needleFillAlpha?: number | undefined;
+  needleFillColor?: number | undefined;
+  needleRadius?: number | undefined;
+  needleStrokeAlpha?: number | undefined;
+  needleStrokeColor?: number | undefined;
+  needleStrokeWeight?: number | undefined;
+  needleTipWidth?: number | undefined;
 }
