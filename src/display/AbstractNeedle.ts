@@ -1,15 +1,32 @@
-import { INeedle } from "./INeedle";
 import { AbstractControl } from "./AbstractControl";
+import { INeedle } from "./INeedle";
+import { NeedleOptions } from "./NeedleOptions";
 
 export abstract class AbstractNeedle extends AbstractControl implements INeedle {
-  protected _needleBaseWidth: number = 4;
-  protected _needleFillAlpha: number = 1.0;
-  protected _needleFillColor: number = 0x313131;
-  protected _needleRadius: number = 90;
-  protected _needleStrokeAlpha: number = 1.0;
-  protected _needleStrokeColor: number = 0xffffff;
-  protected _needleStrokeWeight: number = 1;
-  protected _needleTipWidth: number = 1;
+  private _needleBaseWidth?: number | undefined;
+  private _needleFillAlpha?: number | undefined;
+  private _needleFillColor?: number | undefined;
+  private _needleRadius?: number | undefined;
+  private _needleStrokeAlpha?: number | undefined;
+  private _needleStrokeColor?: number | undefined;
+  private _needleStrokeWeight?: number | undefined;
+  private _needleTipWidth?: number | undefined;
+
+  /**
+   * Constructor
+   */
+  protected constructor(options?: Partial<NeedleOptions>) {
+    super();
+
+    this.needleBaseWidth = options?.needleBaseWidth;
+    this.needleFillAlpha = options?.needleFillAlpha;
+    this.needleFillColor = options?.needleFillColor;
+    this.needleRadius = options?.needleRadius;
+    this.needleStrokeAlpha = options?.needleStrokeAlpha;
+    this.needleStrokeColor = options?.needleStrokeColor;
+    this.needleStrokeWeight = options?.needleStrokeWeight;
+    this.needleTipWidth = options?.needleTipWidth;
+  }
 
   //------------------------------
   //  properties
@@ -18,112 +35,104 @@ export abstract class AbstractNeedle extends AbstractControl implements INeedle 
   /**
    * needleBaseWidth
    */
-  get needleBaseWidth(): number {
+  get needleBaseWidth() {
     return this._needleBaseWidth;
   }
 
-  set needleBaseWidth(value: number) {
+  set needleBaseWidth(value) {
     if (this._needleBaseWidth === value) return;
-
     this._needleBaseWidth = value;
-    this._dirty = true;
+    this.invalidate();
   }
 
   /**
    * needleFillAlpha
    */
-  get needleFillAlpha(): number {
+  get needleFillAlpha() {
     return this._needleFillAlpha;
   }
 
-  set needleFillAlpha(value: number) {
+  set needleFillAlpha(value) {
     if (this._needleFillAlpha === value) return;
-
     this._needleFillAlpha = value;
-    this._dirty = true;
+    this.invalidate();
   }
 
   /**
    * needleFillColor
    */
-  get needleFillColor(): number {
+  get needleFillColor() {
     return this._needleFillColor;
   }
 
-  set needleFillColor(value: number) {
+  set needleFillColor(value) {
     if (this._needleFillColor === value) return;
-
     this._needleFillColor = value;
-    this._dirty = true;
+    this.invalidate();
   }
 
   /**
    * needleRadius
    */
-  get needleRadius(): number {
+  get needleRadius() {
     return this._needleRadius;
   }
 
-  set needleRadius(value: number) {
+  set needleRadius(value) {
     if (this._needleRadius === value) return;
-
     this._needleRadius = value;
-    this._dirty = true;
+    this.invalidate();
   }
 
   /**
    * needleStrokeAlpha
    */
-  get needleStrokeAlpha(): number {
+  get needleStrokeAlpha() {
     return this._needleStrokeAlpha;
   }
 
-  set needleStrokeAlpha(value: number) {
+  set needleStrokeAlpha(value) {
     if (this._needleStrokeAlpha === value) return;
-
     this._needleStrokeAlpha = value;
-    this._dirty = true;
+    this.invalidate();
   }
 
   /**
    * needleStrokeColor
    */
-  get needleStrokeColor(): number {
+  get needleStrokeColor() {
     return this._needleStrokeColor;
   }
 
-  set needleStrokeColor(value: number) {
+  set needleStrokeColor(value) {
     if (this._needleStrokeColor === value) return;
-
     this._needleStrokeColor = value;
-    this._dirty = true;
+    this.invalidate();
   }
 
   /**
    * needleStrokeWeight
    */
-  get needleStrokeWeight(): number {
+  get needleStrokeWeight() {
     return this._needleStrokeWeight;
   }
 
-  set needleStrokeWeight(value: number) {
+  set needleStrokeWeight(value) {
     if (this._needleStrokeWeight === value) return;
-
     this._needleStrokeWeight = value;
-    this._dirty = true;
+    this.invalidate();
   }
 
   /**
    * needleTipWidth
    */
-  get needleTipWidth(): number {
+  get needleTipWidth() {
     return this._needleTipWidth;
   }
 
-  set needleTipWidth(value: number) {
+  set needleTipWidth(value) {
     if (this._needleTipWidth === value) return;
-
     this._needleTipWidth = value;
-    this._dirty = true;
+    this.invalidate();
   }
 }
