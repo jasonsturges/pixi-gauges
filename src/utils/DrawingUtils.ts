@@ -1,4 +1,4 @@
-import * as PIXI from "pixi.js";
+import { Graphics } from "pixi.js";
 
 export class DrawingUtils {
   /**
@@ -13,13 +13,13 @@ export class DrawingUtils {
    * @param yRadius - Vertical radius, if different than radius
    */
   public static drawArc(
-    target: PIXI.Graphics,
+    target: Graphics,
     x: number,
     y: number,
     radius: number,
     arc: number,
     startAngle: number = 0,
-    yRadius: number = 0
+    yRadius: number = 0,
   ): void {
     if (startAngle === 0) {
       startAngle = 0;
