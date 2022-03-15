@@ -6,9 +6,8 @@ export abstract class AbstractControl extends Sprite {
   /**
    * Constructor
    */
-  constructor() {
+  protected constructor() {
     super();
-
     this._invalidated = false;
   }
 
