@@ -1,12 +1,40 @@
 import { AbstractControl } from "./AbstractControl";
 import { IGauge } from "./IGauge";
-import PIXI from "pixi.js";
+import { GaugeOptions } from "./GaugeOptions";
 
 export abstract class AbstractGauge extends AbstractControl implements IGauge {
-  protected _autoAdjustMinMax: boolean = true;
-  protected _maximum: number = 100;
-  protected _minimum: number = 0;
-  protected _value: number = 0;
+  private _autoAdjustMinMax: boolean | undefined;
+  private _minimum: number | undefined;
+  private _maximum: number | undefined;
+  private _value: number | undefined;
+
+  /**
+   * Constructor
+   */
+  protected constructor(options?: Partial<GaugeOptions>) {
+    super();
+
+    this.autoAdjustMinMax = options?.autoAdjustMinMax;
+    this.maximum = options?.maximum;
+    this.minimum = options?.minimum;
+    this.value = options?.value;
+  }
+
+  /**
+   * Validate
+   */
+  protected override validate() {
+    super.validate();
+
+    if (this.autoAdjustMinMax) {
+      if (this.value && this.maximum && this.value > this.maximum) {
+        this.maximum = this.value;
+      }
+      if (this.value && this.minimum && this.value < this.minimum) {
+        this.minimum = this.value;
+      }
+    }
+  }
 
   //------------------------------
   //  properties
@@ -15,75 +43,52 @@ export abstract class AbstractGauge extends AbstractControl implements IGauge {
   /**
    * autoAdjustMinMax
    */
-  get autoAdjustMinMax(): boolean {
+  get autoAdjustMinMax() {
     return this._autoAdjustMinMax;
   }
 
-  set autoAdjustMinMax(value: boolean) {
+  set autoAdjustMinMax(value) {
     if (this._autoAdjustMinMax === value) return;
-
     this._autoAdjustMinMax = value;
-    this._dirty = true;
+    this.invalidate();
   }
 
   /**
    * maximum
    */
-  get maximum(): number {
+  get maximum() {
     return this._maximum;
   }
 
-  set maximum(value: number) {
+  set maximum(value) {
     if (this._maximum === value) return;
-
     this._maximum = value;
-    this._dirty = true;
+    this.invalidate();
   }
 
   /**
    * minimum
    */
-  get minimum(): number {
+  get minimum() {
     return this._minimum;
   }
 
-  set minimum(value: number) {
+  set minimum(value) {
     if (this._minimum === value) return;
-
     this._minimum = value;
-    this._dirty = true;
+    this.invalidate();
   }
 
   /**
-   * minimum
+   * value
    */
-  get value(): number {
+  get value() {
     return this._value;
   }
 
-  set value(value: number) {
+  set value(value) {
     if (this._value === value) return;
-
     this._value = value;
-    this._dirty = true;
-  }
-
-  /**
-   * @override
-   * @param renderer
-   */
-  public render(renderer: PIXI.Renderer) {
-    super.render(renderer);
-
-    if (!this._dirty) return;
-
-    if (this.autoAdjustMinMax) {
-      if (this.value > this.maximum) {
-        this.maximum = this.value;
-      }
-      if (this.value < this.minimum) {
-        this.minimum = this.value;
-      }
-    }
+    this.invalidate();
   }
 }
