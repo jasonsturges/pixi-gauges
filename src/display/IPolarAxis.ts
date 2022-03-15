@@ -1,5 +1,7 @@
-export interface IPolarAxis {
-  radius: number;
-  spanAngle: number;
-  startAngle: number;
+import { IAxis } from "./IAxis";
+
+export interface IPolarAxis extends IAxis {
+  radius?: number | undefined;
+  spanAngle?: number | undefined;
+  startAngle?: number | undefined;
 }
