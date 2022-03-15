@@ -1,18 +1,18 @@
 import { canvas, viewport } from "../Scene";
-import { Needle} from "../../../src";
+import { Needle } from "../../../src";
 import { parseColor } from "../../../src/utils/ColorUtils";
 
 export default {
   title: "Gauge/Needle",
   argTypes: {
-    needleBaseWidth: { control: "number" },
-    needleFillAlpha: { control: "number" },
+    needleBaseWidth: { control: { type: "range", min: 0, max: 50, step: 0.1 } },
+    needleFillAlpha: { control: { type: "range", min: 0, max: 1, step: 0.1 } },
     needleFillColor: { control: "color" },
-    needleRadius: { control: "number" },
-    needleStrokeAlpha: { control: "number" },
+    needleRadius: { control: { type: "range", min: 0, max: 100, step: 0.1 } },
+    needleStrokeAlpha: { control: { type: "range", min: 0, max: 1, step: 0.1 } },
     needleStrokeColor: { control: "color" },
-    needleStrokeWeight: { control: "number" },
-    needleTipWidth: { control: "number" },
+    needleStrokeWeight: { control: { type: "range", min: 0, max: 50, step: 0.1 } },
+    needleTipWidth: { control: { type: "range", min: 0, max: 50, step: 0.1 } },
   },
 };
 
