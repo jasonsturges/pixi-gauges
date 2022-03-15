@@ -96,7 +96,7 @@ export class PolarAxis extends AbstractPolarAxis  {
     const interval: number = spanAngle / (majorTickCount - 1);
     const labelInterval: number = (maximum - minimum) / (majorTickCount - 1);
     const textStyle: TextStyle = new TextStyle({
-      fontName: axisLabelFontName,
+      fontFamily: axisLabelFontName,
       fontSize: axisLabelFontSize,
       fill: axisLabelFontColor,
     });
