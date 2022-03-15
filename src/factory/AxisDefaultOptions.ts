@@ -1,0 +1,27 @@
+import { AxisOptions } from "../display/AxisOptions";
+
+export const AxisDefaultOptions: AxisOptions = {
+  axisAlpha: 1,
+  axisColor: 0x313131,
+  axisLabelFontAlpha: 1,
+  axisLabelFontColor: 0x313131,
+  axisLabelFontName: "Arial",
+  axisLabelFontSize: 8,
+  axisLabelGap: 0.19,
+  axisLabelsVisible: true,
+  axisVisible: true,
+  axisWeight: 2,
+  majorTickAlpha: 1,
+  majorTickColor: 0x313131,
+  majorTickCount: 16,
+  majorTickLength: 0.1,
+  majorTickWeight: 2,
+  maximum: 100,
+  minimum: 0,
+  minorTickAlpha: 1,
+  minorTickColor: 0x313131,
+  minorTickCount: 4,
+  minorTickLength: 0.05,
+  minorTickWeight: 1,
+  precision: 0,
+};
