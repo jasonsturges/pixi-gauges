@@ -10,9 +10,9 @@
     "gauge",
     "visualization"
   ],
-  "main": "dist/pixi-gauges.cjs.js",
-  "module": "dist/pixi-gauges.esm.js",
-  "browser": "dist/pixi-gauges.umd.js",
+  "main": "dist/cjs/pixi-gauges.js",
+  "module": "dist/esm/pixi-gauges.js",
+  "browser": "dist/browser/pixi-gauges.js",
   "files": [
     "dist"
   ],
@@ -23,7 +23,7 @@
     "build:types": "tsc -p ./tsconfig.json --outDir build --declaration true && api-extractor run",
     "predoc:typedoc": "rimraf ./docs",
     "docs:typedoc": "typedoc src --out docs",
-    "clean": "rimraf ./build ./dist ./docs",
+    "clean": "rimraf ./build ./dist ./docs ./storybook-static",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "deploy-storybook": "storybook-to-ghpages"
