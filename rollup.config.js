@@ -11,12 +11,13 @@ export default [
       name: "pixiGauges",
       file: pkg.browser,
       format: "umd",
+      sourcemap: true,
       globals: { "pixi.js": "PIXI" },
     },
     external: ["pixi.js"],
     plugins: [
-      resolve(), // so Rollup can find `ms`
-      commonjs(), // so Rollup can convert `ms` to an ES module
+      resolve(), //
+      commonjs(),
       typescript({ tsconfig: "./tsconfig.json" }),
     ],
   },
@@ -25,8 +26,8 @@ export default [
   {
     input: "src/index.ts",
     output: [
-      { file: pkg.main, format: "cjs" },
-      { file: pkg.module, format: "es" },
+      { file: pkg.main, format: "cjs", sourcemap: true },
+      { file: pkg.module, format: "es", sourcemap: true },
     ],
     external: ["pixi.js"],
     plugins: [typescript({ tsconfig: "./tsconfig.json" })],
