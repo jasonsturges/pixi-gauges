@@ -66,14 +66,20 @@ export class RadialGauge extends AbstractRadialGauge {
       this._needle.needleTipWidth = this.needleTipWidth;
     }
 
-    const target: number =
-      this._polarAxis.startAngle +
-      this._polarAxis.spanAngle * ((this.value - this.minimum) / (this.maximum - this.minimum));
+    const maximum = this.maximum ?? 100;
+    const minimum = this.minimum ?? 0;
+    const spanAngle = this.spanAngle ?? 260;
+    const startAngle = this.startAngle ?? 140;
+    const value = this.value ?? 0;
 
-    if (isNaN(target)) {
-      this._needle.angle = this.startAngle;
-    } else {
-      this._needle.angle = target;
+    const target: number = startAngle + spanAngle * ((value - minimum) / (maximum - minimum));
+
+    if (this._needle) {
+      if (isNaN(target)) {
+        this._needle.angle = startAngle;
+      } else {
+        this._needle.angle = target;
+      }
     }
   }
 }
