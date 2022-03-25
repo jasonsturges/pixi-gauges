@@ -4,7 +4,7 @@ import { Graphics, ILineStyleOptions, LINE_CAP, LINE_JOIN, Text, TextStyle } fro
 import { PolarAxisDefaultOptions } from "../factory/PolarAxisDefaultOptions";
 import { PolarAxisOptions } from "./PolarAxisOptions";
 
-export class PolarAxis extends AbstractPolarAxis  {
+export class PolarAxis extends AbstractPolarAxis {
   private _labelPool?: Text[] | undefined;
   private _labels?: Text[] | undefined;
   private readonly _graphics?: Graphics | undefined;
@@ -28,7 +28,7 @@ export class PolarAxis extends AbstractPolarAxis  {
   protected override validate() {
     super.validate();
 
-    this._graphics.clear();
+    this._graphics?.clear();
 
     if (this.axisVisible) {
       this.renderTickMarks();
@@ -50,48 +50,52 @@ export class PolarAxis extends AbstractPolarAxis  {
       join: LINE_JOIN.MITER,
     });
 
-    DrawingUtils.drawArc(
-      this._graphics,
-      Math.cos((this.startAngle * Math.PI) / 180) * this.radius,
-      Math.sin((this.startAngle * Math.PI) / 180) * this.radius,
-      this.radius,
-      -this.spanAngle,
-      -this.startAngle,
-    );
+    const radius = this.radius ?? 100;
+    const spanAngle = this.spanAngle ?? 260;
+    const startAngle = this.startAngle ?? 140;
+
+    if (this._graphics) {
+      DrawingUtils.drawArc(
+        this._graphics,
+        Math.cos((startAngle * Math.PI) / 180) * radius,
+        Math.sin((startAngle * Math.PI) / 180) * radius,
+        radius,
+        -spanAngle,
+        -startAngle,
+      );
+    }
   }
 
   /**
    * Render labels
    */
   renderLabels() {
-    const {
-      _labelPool,
-      _labels,
-      axisLabelFontAlpha,
-      axisLabelFontColor,
-      axisLabelFontName,
-      axisLabelFontSize,
-      axisLabelGap,
-      maximum,
-      minimum,
-      majorTickCount,
-      precision,
-      spanAngle,
-      startAngle,
-      radius,
-    } = this;
-
     let label: Text;
 
-    while (_labels.length > 0) {
-      label = _labels.shift()!;
-      _labelPool.push(label);
-      this.removeChild(label);
+    if (this._labels) {
+      while (this._labels.length > 0) {
+        label = this._labels.shift()!;
+        this._labelPool?.push(label);
+        this.removeChild(label);
+      }
     }
 
     if (!this.axisLabelsVisible) {
       return;
     }
+
+    const axisLabelFontAlpha = this.axisLabelFontAlpha ?? 1;
+    const axisLabelFontColor = this.axisLabelFontColor ?? 0x313131;
+    const axisLabelFontName = this.axisLabelFontName ?? "Arial";
+    const axisLabelFontSize = this.axisLabelFontSize ?? 8;
+    const axisLabelGap = this.axisLabelGap ?? 0.19;
+    const majorTickCount = this.majorTickCount ?? 16;
+    const maximum = this.maximum ?? 100;
+    const minimum = this.minimum ?? 0;
+    const precision = this.precision ?? 0;
+    const radius = this.radius ?? 100;
+    const spanAngle = this.spanAngle ?? 260;
+    const startAngle = this.startAngle ?? 140;
 
     const interval: number = spanAngle / (majorTickCount - 1);
     const labelInterval: number = (maximum - minimum) / (majorTickCount - 1);
@@ -104,8 +108,8 @@ export class PolarAxis extends AbstractPolarAxis  {
     for (let i = 0, tickAngle = startAngle; i < majorTickCount; i++, tickAngle += interval) {
       let value: string = (minimum + labelInterval * i).toFixed(precision);
 
-      if (_labelPool.length > 0) {
-        label = _labelPool.shift()!;
+      if (this._labelPool && this._labelPool.length > 0) {
+        label = this._labelPool.shift()!;
         label.text = value;
         label.style = textStyle;
         label.dirty = true;
@@ -113,7 +117,7 @@ export class PolarAxis extends AbstractPolarAxis  {
         label = new Text(value, textStyle);
       }
 
-      _labels.push(label);
+      this._labels?.push(label);
       this.addChild(label);
 
       label.alpha = axisLabelFontAlpha;
@@ -124,64 +128,62 @@ export class PolarAxis extends AbstractPolarAxis  {
         Math.sin((tickAngle * Math.PI) / 180) * (radius - radius * axisLabelGap),
       );
     }
-
-    while (_labelPool.length > 0) {
-      label = _labelPool.shift()!;
-    }
   }
 
   /**
    * Render tick marks
    */
   renderTickMarks() {
-    const {
-      _graphics,
-      minorTickAlpha,
-      minorTickColor,
-      minorTickCount,
-      minorTickLength,
-      minorTickWeight,
-      majorTickAlpha,
-      majorTickColor,
-      majorTickCount,
-      majorTickLength,
-      majorTickWeight,
-      spanAngle,
-      startAngle,
-      radius,
-    } = this;
+    const majorTickAlpha = this.majorTickAlpha ?? 1;
+    const majorTickColor = this.majorTickColor ?? 0x313131;
+    const majorTickCount = this.majorTickCount ?? 16;
+    const majorTickLength = this.majorTickLength ?? 0.1;
+    const majorTickWeight = this.minorTickWeight ?? 2;
+    const minorTickAlpha = this.minorTickAlpha ?? 1;
+    const minorTickColor = this.minorTickColor ?? 0x313131;
+    const minorTickCount = this.minorTickCount ?? 4;
+    const minorTickLength = this.minorTickLength ?? 0.05;
+    const minorTickWeight = this.minorTickWeight ?? 1;
+    const radius = this.radius ?? 100;
+    const spanAngle = this.spanAngle ?? 260;
+    const startAngle = this.startAngle ?? 140;
 
     const interval: number = spanAngle / (majorTickCount - 1);
 
-    for (let i = 0, tickAngle = startAngle; i < majorTickCount; i++, tickAngle += interval) {
-      _graphics.lineStyle(majorTickWeight, majorTickColor, majorTickAlpha);
+    if (this._graphics) {
+      for (let i = 0, tickAngle = startAngle; i < majorTickCount; i++, tickAngle += interval) {
+        this._graphics.lineStyle(majorTickWeight, majorTickColor, majorTickAlpha);
 
-      _graphics.moveTo(Math.cos((tickAngle * Math.PI) / 180) * radius, Math.sin((tickAngle * Math.PI) / 180) * radius);
-
-      _graphics.lineTo(
-        Math.cos((tickAngle * Math.PI) / 180) * (radius - radius * majorTickLength),
-        Math.sin((tickAngle * Math.PI) / 180) * (radius - radius * majorTickLength),
-      );
-
-      // minor tick marks
-      _graphics.lineStyle(minorTickWeight, minorTickColor, minorTickAlpha);
-
-      let minorInterval: number = interval / (minorTickCount + 1);
-
-      for (
-        let j: number = 0, minorTickAngle: number = tickAngle + minorInterval;
-        j < minorTickCount && i !== majorTickCount - 1;
-        j++, minorTickAngle += minorInterval
-      ) {
-        _graphics.moveTo(
-          Math.cos((minorTickAngle * Math.PI) / 180) * radius,
-          Math.sin((minorTickAngle * Math.PI) / 180) * radius,
+        this._graphics.moveTo(
+          Math.cos((tickAngle * Math.PI) / 180) * radius,
+          Math.sin((tickAngle * Math.PI) / 180) * radius,
         );
 
-        _graphics.lineTo(
-          Math.cos((minorTickAngle * Math.PI) / 180) * (radius - radius * minorTickLength),
-          Math.sin((minorTickAngle * Math.PI) / 180) * (radius - radius * minorTickLength),
+        this._graphics.lineTo(
+          Math.cos((tickAngle * Math.PI) / 180) * (radius - radius * majorTickLength),
+          Math.sin((tickAngle * Math.PI) / 180) * (radius - radius * majorTickLength),
         );
+
+        // minor tick marks
+        this._graphics.lineStyle(minorTickWeight, minorTickColor, minorTickAlpha);
+
+        let minorInterval: number = interval / (minorTickCount + 1);
+
+        for (
+          let j: number = 0, minorTickAngle: number = tickAngle + minorInterval;
+          j < minorTickCount && i !== majorTickCount - 1;
+          j++, minorTickAngle += minorInterval
+        ) {
+          this._graphics.moveTo(
+            Math.cos((minorTickAngle * Math.PI) / 180) * radius,
+            Math.sin((minorTickAngle * Math.PI) / 180) * radius,
+          );
+
+          this._graphics.lineTo(
+            Math.cos((minorTickAngle * Math.PI) / 180) * (radius - radius * minorTickLength),
+            Math.sin((minorTickAngle * Math.PI) / 180) * (radius - radius * minorTickLength),
+          );
+        }
       }
     }
   }
