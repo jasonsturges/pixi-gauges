@@ -2,9 +2,9 @@
 
 Pixi.js gauge visualization components
 
-![pixi-gauges](https://user-images.githubusercontent.com/1213591/110276868-b480dd00-7f99-11eb-95c0-e7cc509e497a.gif)
+![pixi-gauges](https://user-images.githubusercontent.com/1213591/160224264-f1c74966-44f5-4813-9e61-e91ae498cfe8.gif)
 
-CodeSandbox Demo: https://s2cw6.csb.app/
+CodeSandbox Demo: https://codesandbox.io/s/pixi-gauges-s2cw6
 
 # Getting Started
 
